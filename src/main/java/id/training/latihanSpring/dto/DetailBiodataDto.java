@@ -9,6 +9,7 @@ public class DetailBiodataDto {
 	private Date ttl;
 	private String hoby;
 	private String jk;
+	private Integer personId;
 	
 	public Integer getId() {
 		return id;
@@ -46,7 +47,15 @@ public class DetailBiodataDto {
 	public void setJk(String jk) {
 		this.jk = jk;
 	}
-	public DetailBiodataDto(Integer id, String domisili, Integer usia, Date ttl, String hoby, String jk) {
+	
+	public Integer getPersonId() {
+		return personId;
+	}
+	public void setPersonId(Integer personId) {
+		this.personId = personId;
+	}
+	public DetailBiodataDto(Integer id, String domisili, Integer usia, Date ttl, String hoby, String jk,
+			Integer personId) {
 		super();
 		this.id = id;
 		this.domisili = domisili;
@@ -54,6 +63,7 @@ public class DetailBiodataDto {
 		this.ttl = ttl;
 		this.hoby = hoby;
 		this.jk = jk;
+		this.personId = personId;
 	}
 	public DetailBiodataDto() {
 		super();

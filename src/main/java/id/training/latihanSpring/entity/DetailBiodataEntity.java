@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -32,6 +34,10 @@ public class DetailBiodataEntity {
     @Column(name = "jenis_kelamin", length = 50, nullable = false)
 	private String jk;
 
+    @OneToOne
+    @JoinColumn(name="person_id")
+    private PersonEntity personEntity;	
+    
 	public Integer getId() {
 		return id;
 	}
@@ -80,7 +86,18 @@ public class DetailBiodataEntity {
 		this.jk = jk;
 	}
 
-	public DetailBiodataEntity(Integer id, String domisili, Integer usia, Date ttl, String hoby, String jk) {
+	
+
+	public PersonEntity getPersonEntity() {
+		return personEntity;
+	}
+
+	public void setPersonEntity(PersonEntity personEntity) {
+		this.personEntity = personEntity;
+	}
+
+	public DetailBiodataEntity(Integer id, String domisili, Integer usia, Date ttl, String hoby, String jk,
+			PersonEntity personEntity) {
 		super();
 		this.id = id;
 		this.domisili = domisili;
@@ -88,6 +105,7 @@ public class DetailBiodataEntity {
 		this.ttl = ttl;
 		this.hoby = hoby;
 		this.jk = jk;
+		this.personEntity = personEntity;
 	}
 
 	public DetailBiodataEntity() {
